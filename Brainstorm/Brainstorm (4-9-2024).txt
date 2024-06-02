@@ -1,0 +1,24 @@
+So far I see three avenues:
+1. Spatial
+2. Structural Modeling
+3. HANK
+4. Some optimization type question (weak)
+
+
+Within spatial there are really two types of questions:
+1. A structural model akin to Dingel and that other Berlin Wall seminal paper
+2. Some lights type question, add an econ twist on it related to housing choice
+
+
+Within Structural Modeling (which is a very broad term), I see the following places:
+1. Firm dynamics (exogenous innovation, equity based worker salaries)
+2. tbd
+
+Within HANK:
+1. something with wage elasticity?
+2. This new heterogeneity by specifying racial classes as well
+
+
+Optimization Problem:
+1. Personally, there are a lot of things that come to mind
+2. More game theoretical three body problem vibe esque things
