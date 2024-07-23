@@ -1,0 +1,185 @@
+%--------------------
+% Packages
+% -------------------
+\documentclass[11pt,english]{article}
+\usepackage{amsfonts}
+\usepackage[left=2.5cm,top=2cm,right=2.5cm,bottom=3cm,bindingoffset=0cm]{geometry}
+\usepackage{amsmath, amsthm, amssymb}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usetikzlibrary{decorations.pathreplacing,calligraphy}
+\usepackage{fancyhdr}
+%\usepackage{currfile}
+\usepackage{nicefrac}
+\usepackage{cite}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{longtable}
+\usepackage{rotating}
+\usepackage{lscape}
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage{placeins}
+\usepackage{setspace}
+\usepackage[font=itshape]{quoting}
+\onehalfspacing
+\usepackage{mathrsfs}
+\usepackage{tcolorbox}
+\usepackage{xcolor}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage[multiple]{footmisc}
+\usepackage[T1]{fontenc}
+\usepackage[sc]{mathpazo}
+\usepackage{listings}
+\usepackage{longtable}
+\definecolor{cmured}{RGB}{175,30,45}
+\definecolor{macroblue}{RGB}{56,108,176}
+\usepackage[format=plain,
+            labelfont=bf,
+            textfont=]{caption}
+\usepackage[colorlinks=true,citecolor=macroblue,linkcolor=macroblue,urlcolor=macroblue]{hyperref}
+\usepackage{varioref}
+\usepackage{chngcntr}
+
+\definecolor{darkgreen}{RGB}{30,175,88}
+\definecolor{darkblue}{RGB}{30,118,175}
+\definecolor{maroon}{rgb}{0.66,0,0}
+\definecolor{darkgreen}{rgb}{0,0.69,0}
+
+%Counters
+\newtheorem{theorem}{Theorem}[section] 
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{assumption}{Assumption}
+\newtheorem{axiom}{Axiom}
+\newtheorem{case}{Case}
+\newtheorem{claim}{Claim}
+\newtheorem{condition}{Condition}
+\newtheorem{definition}{Definition}
+\newtheorem{example}{Example}
+\newtheorem{notation}{Notation}
+\newtheorem{remark}{Remark}
+
+
+
+\hypersetup{ 	
+pdfsubject = {},
+pdftitle = {NSF Grant Documentation},
+pdfauthor = {Pranay Gundam},
+linkcolor= macroblue
+}
+
+
+\title{\textbf{NSF Grant Documentation}}
+\author{Pranay Gundam}
+
+
+%-----------------------
+% Begin document
+%-----------------------
+\begin{document}
+
+\maketitle
+
+
+\tableofcontents
+
+
+\section{Introduction}
+
+This document will document the live progression of a structural macro model that I am building for my 2024 NSF Grant proposal. I have a few ideas in the pipeline, each of which will have their own dedicated section, but the purpose of this document is to track my live notes as I do more work on this project.
+
+\section{Structural Urban Spacial Models}
+
+The main inspration for this idea is Dingel, Tintelnot (2023)\cite{Dingel2023}. I've learned that the sub-literature is called Spatial Equilibrium models where the key idea is that we are trying to solve for equilibrium in different economies under the assumption that there is some sort of transportation cost and spatial linkage between them. The manner in which these blocks are spatially linked are up to the economist but to outline a very basic problem consider an economy with two blocks. Consumers in one block can travel to the other block to purchase the consumption good but have to pay an additional transportation cost to do so, or visa versa firms located in one block can sell their goods in the other block but are subject to a transportation cost if they are to do so. Already one can see a simple clear idea of how equilibrium is to be formed and how differences in firm productivity or location specific factors that affect production would create some rich dynamics in determining equilibrium prices. It's a classic problem that shows up everytime a politician talks about tariffs and trade deals.
+
+\subsection{Key Takeaways from the Literature}
+
+Below is a list of some important ideas from the existing literature.
+
+\begin{itemize}
+\item The basic macro concepts in the model are very similar to other RBCs execpt the focus is not on consumption and saving sequences but on the pairwise choice between residential block and employment block.
+
+\item  Another key idea is that the spatial literature is vastly different in terms of what appeals to me between the general trade/climate literature vs the general equilibrium literature. Within general equilibrium there is also a divide between static equilibrium models and dynamic equilibrium models.
+
+\item In these general equilibrium models, each block is like a market of its own where the wage and rent are prices to be solved for and these markets can interact with eachother at some cost.
+\end{itemize}
+
+\subsubsection{Ahlfeldt, Redding, Sturm, Wolf (2015): Berlin Wall\cite{Ahlfeldt2015}}
+
+This model is driven by a \begin{center}\textit{"tension between agglomeration forces (in the form of production and residential externalities) and dispersion forces (in the form of commuting costs and an inelastic supply of land)".}\end{center} Which basically means forces to push people further (firms want to compete less agaisnt eachother and there are costs to residential density), and forces to pull people closer (people don't want to commute super far and there is only so much land available for residence.\\
+
+\noindent There is a discrete finite set of $S\in \mathbb{N}$ locations/blocks indexed by $i=1, \ldots, S$. Each block has exogenous land space $L_i$ which is endogenously chosen to be split between residential and commercial uses by the fraction $1-\theta_i$ and $\theta_i$ respectively. The city itself provides a reservation utillity $\bar{U}$ and the worker decision is whether or not to move to the city and if yes then which residential and employment block. An object of interest is the probability that a worker chooses a particular pairwise block choice (as is important in discrete choice models) which is defined as the ratio between the utility from making that pairwise choice and the total utility from all the pairwise choices; summing over either the working index or the residential index gives the probability of working or residing in a particular block respectively. In addition to the wages, each block has a specific distribution of work utility to represent some exogenous characteristics that would affect one's choice to work somewhere. There are some other objects of note on the worker side that are a bit in the details of how we are defining the conditional probabilites of working in a given location or you wage given that you live in a location (which one can think of as a function of the commuting costs to blocks with high wages from that location). This last detail seems pretty intuitive and a good nuance to contextualize, areas in Manhattan that are expensive often are both high in the exogenous amenities and close to high wage paying locations (midtown / fidi), they are high in demand because they have low commuting costs to these blocks with high wages.\\
+
+\noindent On the production side of the model, firms in perfect competition also choose which block to locate in based on Cobb-Douglas technology which is dependent itself on their final goods productivity, measure of wotkers deciding to work in a given block, and the available commercial floor space. Maximizing profits is dependent on the commercial floor price $q_i$ and wages in that given block.\\
+
+\noindent Finally there is also a land market clearing condition where there must be no arbitrarge between residential and commercial use of land: aka commercial floor space cost $q_i$ must be the same as the residential floor space cost post tax $\xi_i Q_i$. There is also a construction firm that has Cobb-Douglas production and takes in capital and land to create floor space. In terms of the data, transportation times are some convex combination of public transport times and car commute times.
+
+\subsubsection{Kleinman, Liu, Redding (2023): DSGE\cite{Kleinman2023}}
+
+This model builds on the class of Dynamic Spatial General Equilibrium literature. First, there are locations indexed by $i\in \{1, \cdots, N\}$ There are two infinitely-lived agents in this model: landords and workers. 
+\begin{itemize}
+\item \textbf{Worker:} Supplied with one unit of labor, geographically mobile subject to migration costs, cannot invest in any type of asset (are hand-to-mouth).
+
+\item \textbf{Landlord:} Geographically immobile, own capital stock in their location, make forward looking decision regarding consumption and investment in this local stock of capital (immovable buildings and sturctures).
+\end{itemize}
+
+Much of the other model setup is actually not as sophisticated as in Ahlfeldt, Redding, Sturm, Wolf other than the fact that general equilibrium is a dynamic path of the capital allocations and proces.
+
+\subsection{Avenues of Innovation}
+
+\begin{itemize}
+\item Block density constraints (or what if there is infinite and people just build up?)
+
+\item Racial/cultural frictions (how is it that neighborhoods are often formed on basis of cultural homogeneity). This is important because we want to study the affect of how locations act as poverty sinks. There is one detail I'm missing here...
+
+\item Commuting shocks (like subway failures), and defining the model as a network, the more paths you have is also good because more protected from commuting shocks.
+
+\item 
+\end{itemize}
+
+\subsection{Live Checklist of To-Do's}
+
+\begin{itemize}
+\item Look at the data of intra-city movement. How often does it occur? How many people (percentages) are moving? What kind of people are moving? What are the characteristics and policies of a city where there is little movement, a lot of movement?
+
+\item Look at the data of inter-city movement. How often does it occur?
+
+\item How to characterize a city/metropolitan area, does Plano count as a part of Dallas? What city would be best to focus on as a result of this difficulty to define a metropolitan area?
+
+\end{itemize}
+
+
+\section{Spatial Models}
+
+\subsection{Version 1: Simple OLG, no stochasticity}
+
+\subsubsection{The Model}
+
+Consider a model with $N$ many blocks, and also just for simplicity let's assume that most everything is exogenously determined. Specifically, let the only agent (there can also be $N$ many agents of a continuum of them but since there is no hetorogeniety and most of the variables are exogenously determined we can consider a representative agent) who makes decisions be a hand-to-mouth worker who lives for two periods and each period and only makes decisions about where they should live and where they want to work. Each of the two location blocks has heterogenous rates of household rent $\{r_1, r_2\}$, wages $\{w_1, w_2\}$, index of worker utility $\{A^w_1, A^w_2\}$, index of living utility $\{A^\ell_1, A^\ell_2\}$ and workers form their utility over the pairwise choice of where they want to live, where they want to work, and how much they can consume (the consumption good in question is homogenous across all blocks). In addition, there is a commuting cost . To make the problem of the worker more concrete, we can write the utility of a worker living in block $i$ and working in block $j$ consuming $c$ $$u(i,j, c) = \ln \left(A^w_jA^\ell_i c\right).$$ They also face budget constraints on their consumption depending on their wage and rent that they have to pay $$c_t + r_i \leq w_j.$$
+
+Summarized, the worker problem is to maximize $$\max_{c_t, c_{t+1}, \{i_t, j_t\}, \{i_{t+1}, j_{t+1}\}} u\left(i_t,j_t, c_t\right) + u\left(i_{t+1},j_{t+1}, c_{t+1}\right),$$
+subject to \begin{align*}
+c_t + r_{i_t} + d_{i_t,j_t}\leq w_{j_t}&,\\
+c_{t+1} + r_{i_{t+1}} + d_{i_{t+1}, j_{t+1}}\leq w_{j_{t+1}}&.
+\end{align*}
+
+\noindent Since most variables are exogenously determined and there is no stochasticity this problem really degenerates to which housing and employment block pairwise choice frees up the most disposable income after rent and transportation costs given that the employment and living indexes are also comparable. In addition, the worker doesn't decide to change their choice in their second period of life since nothing has changed in each of the determinants of their utility. This idea of freeing up the most disposable income is a critical qualitative description for the worker's problem.
+
+\subsubsection{Key Features and Extensions}
+
+This model is clearly pretty simple and lacks much of the interactions and stochasiticty that is interesting to study. What it does do, however, is setup a clear framework for the types of problems that the workers face and provides a qualitative look into the dynamics that will drive their decision making. From this point it is pretty easy to tack on $N$ many location blocks 
+
+%\section{HANK with Racial Frictions}
+
+\newpage
+
+%\printbibliography
+
+\bibliographystyle{plain}
+\bibliography{Lit-Reviews/papers.bib}
+
+
+\end{document}
