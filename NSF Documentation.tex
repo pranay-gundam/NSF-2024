@@ -113,7 +113,7 @@ This model is driven by a \begin{center}\textit{"tension between agglomeration f
 
 \noindent There is a discrete finite set of $S\in \mathbb{N}$ locations/blocks indexed by $i=1, \ldots, S$. Each block has exogenous land space $L_i$ which is endogenously chosen to be split between residential and commercial uses by the fraction $1-\theta_i$ and $\theta_i$ respectively. The city itself provides a reservation utillity $\bar{U}$ and the worker decision is whether or not to move to the city and if yes then which residential and employment block. An object of interest is the probability that a worker chooses a particular pairwise block choice (as is important in discrete choice models) which is defined as the ratio between the utility from making that pairwise choice and the total utility from all the pairwise choices; summing over either the working index or the residential index gives the probability of working or residing in a particular block respectively. In addition to the wages, each block has a specific distribution of work utility to represent some exogenous characteristics that would affect one's choice to work somewhere. There are some other objects of note on the worker side that are a bit in the details of how we are defining the conditional probabilites of working in a given location or you wage given that you live in a location (which one can think of as a function of the commuting costs to blocks with high wages from that location). This last detail seems pretty intuitive and a good nuance to contextualize, areas in Manhattan that are expensive often are both high in the exogenous amenities and close to high wage paying locations (midtown / fidi), they are high in demand because they have low commuting costs to these blocks with high wages.\\
 
-\noindent On the production side of the model, firms in perfect competition also choose which block to locate in based on Cobb-Douglas technology which is dependent itself on their final goods productivity, measure of wotkers deciding to work in a given block, and the available commercial floor space. Maximizing profits is dependent on the commercial floor price $q_i$ and wages in that given block.\\
+\noindent On the production side of the model, firms in perfect competition also choose which block to locate in based on Cobb-Douglas technology which is dependent itself on their final goods productivity, measure of wotkers deciding to work in a given block, and the available commercial floor space. Maximizing profits is dependent on the commercial floor price $q_i$ and wages in that given block. This paper is also pretty cool in that it uses agglomeration forces to vary firm productivity in each of the blocks as well.\\
 
 \noindent Finally there is also a land market clearing condition where there must be no arbitrarge between residential and commercial use of land: aka commercial floor space cost $q_i$ must be the same as the residential floor space cost post tax $\xi_i Q_i$. There is also a construction firm that has Cobb-Douglas production and takes in capital and land to create floor space. In terms of the data, transportation times are some convex combination of public transport times and car commute times.
 
@@ -136,8 +136,7 @@ Much of the other model setup is actually not as sophisticated as in Ahlfeldt, R
 \item Racial/cultural frictions (how is it that neighborhoods are often formed on basis of cultural homogeneity). This is important because we want to study the affect of how locations act as poverty sinks. There is one detail I'm missing here...
 
 \item Commuting shocks (like subway failures), and defining the model as a network, the more paths you have is also good because more protected from commuting shocks.
-
-\item 
+ 
 \end{itemize}
 
 \subsection{Live Checklist of To-Do's}
@@ -158,21 +157,49 @@ Much of the other model setup is actually not as sophisticated as in Ahlfeldt, R
 
 \subsubsection{The Model}
 
-Consider a model with $N$ many blocks, and also just for simplicity let's assume that most everything is exogenously determined. Specifically, let the only agent (there can also be $N$ many agents of a continuum of them but since there is no hetorogeniety and most of the variables are exogenously determined we can consider a representative agent) who makes decisions be a hand-to-mouth worker who lives for two periods and each period and only makes decisions about where they should live and where they want to work. Each of the two location blocks has heterogenous rates of household rent $\{r_1, r_2\}$, wages $\{w_1, w_2\}$, index of worker utility $\{A^w_1, A^w_2\}$, index of living utility $\{A^\ell_1, A^\ell_2\}$ and workers form their utility over the pairwise choice of where they want to live, where they want to work, and how much they can consume (the consumption good in question is homogenous across all blocks). In addition, there is a commuting cost . To make the problem of the worker more concrete, we can write the utility of a worker living in block $i$ and working in block $j$ consuming $c$ $$u(i,j, c) = \ln \left(A^w_jA^\ell_i c\right).$$ They also face budget constraints on their consumption depending on their wage and rent that they have to pay $$c_t + r_i \leq w_j.$$
+Consider a model with 2 blocks, and also just for simplicity let's assume that most everything is exogenously determined. Specifically, let the only agent (there can also be $N$ many agents of a continuum of them but since there is no hetorogeniety and most of the variables are exogenously determined we can consider a representative agent) who makes decisions be a hand-to-mouth worker who lives for two periods and each period and only makes decisions about where they should live and where they want to work. Each of the two location blocks has heterogenous rates of household rent $\{r_1, r_2\}$, wages $\{w_1, w_2\}$, index of worker utility $\{A^w_1, A^w_2\}$, index of living utility $\{A^\ell_1, A^\ell_2\}$ and workers form their utility over the pairwise choice of where they want to live, where they want to work, and how much they can consume (the consumption good in question is homogenous across all blocks). In addition, there is a commuting cost . To make the problem of the worker more concrete, we can write the utility of a worker living in block $i$ and working in block $j$ consuming $c$ $$u(i,j, c) = \ln \left(A^w_jA^\ell_i c\right).$$ They also face budget constraints on their consumption depending on their wage, rent, and commuting costs that they have to pay $$c_t + r_i  + d_{i,j}\leq w_j.$$
 
-Summarized, the worker problem is to maximize $$\max_{c_t, c_{t+1}, \{i_t, j_t\}, \{i_{t+1}, j_{t+1}\}} u\left(i_t,j_t, c_t\right) + u\left(i_{t+1},j_{t+1}, c_{t+1}\right),$$
+\noindent Summarized, the worker problem is to maximize $$\max_{c_t, c_{t+1}, \{i_t, j_t\}, \{i_{t+1}, j_{t+1}\}} u\left(i_t,j_t, c_t\right) + u\left(i_{t+1},j_{t+1}, c_{t+1}\right),$$
 subject to \begin{align*}
 c_t + r_{i_t} + d_{i_t,j_t}\leq w_{j_t}&,\\
 c_{t+1} + r_{i_{t+1}} + d_{i_{t+1}, j_{t+1}}\leq w_{j_{t+1}}&.
 \end{align*}
 
-\noindent Since most variables are exogenously determined and there is no stochasticity this problem really degenerates to which housing and employment block pairwise choice frees up the most disposable income after rent and transportation costs given that the employment and living indexes are also comparable. In addition, the worker doesn't decide to change their choice in their second period of life since nothing has changed in each of the determinants of their utility. This idea of freeing up the most disposable income is a critical qualitative description for the worker's problem.
+\noindent Since most variables are exogenously determined and there is no stochasticity, this problem really degenerates to which housing and employment block pairwise choice frees up the most disposable income after rent and transportation costs given that the employment and living indexes are also comparable. In addition, the worker doesn't decide to change their choice in their second period of life since nothing has changed in each of the determinants of their utility. This idea of freeing up the most disposable income is a critical qualitative description for the worker's problem.
 
-\subsubsection{Key Features and Extensions}
+\subsubsection{Solution, Key Features, and Extensions}
 
-This model is clearly pretty simple and lacks much of the interactions and stochasiticty that is interesting to study. What it does do, however, is setup a clear framework for the types of problems that the workers face and provides a qualitative look into the dynamics that will drive their decision making. From this point it is pretty easy to tack on $N$ many location blocks 
+This model is clearly pretty simple and lacks much of the interactions and stochasiticty that is interesting to study. What it does do, however, is setup a clear framework for the types of problems that the workers face and provides a qualitative look into the dynamics that will drive their decision making. From this point it is pretty easy to tack on $N$ many location blocks since all we have to do is write some notation to extend the choice set but the inherent intuition behind the household's choice remains the same. So far, we haven't established some other level of complementarity between the preferences for working and living indexes of utility relative to eachother and consumption but this is also something to consider and tacking on some exponents may be wise. \\
 
-%\section{HANK with Racial Frictions}
+\noindent Another detail that is very important to note is that the maximization problem that we now face is a mixed discrete and continuous. Since this model is pretty simple we can actually arrive at general equilibrium by breaking the maximization process into three steps:
+\begin{enumerate}
+\item Form a set of maximization problems indexed by each unique pairwise choice of living and working at each point in time.
+
+\item Solve each maximization problem taking the working and living related variables as exogenous.
+
+\item Discretely maximize over the set of maximum utility per pairwise choice of living and working.
+\end{enumerate}
+Using this strategy on the model setup above looks as follows.
+\begin{enumerate}
+\item Let's first consider the choices of $(i_t,j_t), (i_{t+1}, j_{t+1})$ to be exogenous. If we were only considering 2 location blocks then this would imply that there are 16 possible combinations; in generality, a model with $N$ many location blocks and workers living for $M$ generations where the representative worker chooses only where to work and where to live each period has $N^{2M}$ possible combinations. Clearly we can already see how this solution method would blow up especially if it is not efficient to solve the basic model where locational characteristics are considered exogenous.\\
+
+\noindent Since all the location relevant variables are to be considered exogenous we are only to maximize $c_t$ and $c_{t+1}$. Specifically we must solve $$\max_{c_t, c_{t+1}} u(i_t,j_t, c_t) + u(i_{t+1},j_{t+1}, c_{t+1})$$ subject to
+\begin{align*}
+c_t + r_{i_t} + d_{i_t,j_t}\leq w_{j_t}&,\\
+c_{t+1} + r_{i_{t+1}} + d_{i_{t+1}, j_{t+1}}\leq w_{j_{t+1}}&.
+\end{align*}
+
+\item The solution to this is not very complicated since most everything is exogenous and only the consumption channel that workers have to worry about. After writing down the FOCs it is clear to see that $c_t = w_{j_t} - r_{i_t} + d_{i_t,j_t}$ and $c_{t+1} = w_{j_{t+1}} - r_{i_{t+1}} + d_{i_{t+1},j_{t+1}}$. Plugging this back into the utility function we get that the set of maximal utility based on the pairwise choices of living and working is $$\left\{\ln\left(A^w_jA^\ell_i (w_{j_t} - r_{i_t} + d_{i_t,j_t})\right) + \ln\left(A^w_{j+1}A^\ell_{i+1} (w_{j_{t+1}} - r_{i_{t+1}} + d_{i_{t+1},j_{t+1}})\right)\right\}_{(i_t, j_t), (i_{t+1}, j_{t+1})}.$$
+
+\item Since all of these variables are known per location block. We simply must evaluate and choose the maximal element.
+\end{enumerate}
+
+\subsection{Version 2: Consumption and Leisure Choices}
+
+\subsubsection{The Model}
+
+
+\subsubsection{Solution, Key Features, and Extensions}
 
 \newpage
 
