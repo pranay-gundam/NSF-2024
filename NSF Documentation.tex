@@ -194,12 +194,24 @@ c_{t+1} + r_{i_{t+1}} + d_{i_{t+1}, j_{t+1}}\leq w_{j_{t+1}}&.
 \item Since all of these variables are known per location block. We simply must evaluate and choose the maximal element.
 \end{enumerate}
 
-\subsection{Version 2: Consumption and Leisure Choices}
+\subsection{Version 2: Relocation Costs}
 
 \subsubsection{The Model}
 
+Consider now the same model above except the worker faces a cost to moving away from their living block (changing their working block doesn't create an inherent cost other than changing the commuting cost). For example, if a worker wanted to change their living block from $i$ to $j$ then they would incur a cost $g(d_{i,j})$ where $g$ is an increasing function of the commuting cost from $i$ to $j$ and $g(d_{i,i}) = g(0) = 0$. With this in mind, we can then explicitly define the worker's problem as $$\max_{c_t, c_{t+1}, \{i_t, j_t\}, \{i_{t+1}, j_{t+1}\}} u\left(i_t,j_t, c_t\right) + u\left(i_{t+1},j_{t+1}, c_{t+1}\right),$$
+subject to \begin{align*}
+c_t + r_{i_t} + d_{i_t,j_t}\leq w_{j_t}&,\\
+c_{t+1} + r_{i_{t+1}} + d_{i_{t+1}, j_{t+1}} + g(d_{i_t, i_{t+1}})\leq w_{j_{t+1}}&.
+\end{align*}
 
 \subsubsection{Solution, Key Features, and Extensions}
+
+\begin{enumerate}
+\item An easy extension to consider from here is stages of life and the birth of new workers. Or in other words differentiating children from working class age to old retired people. Each age solves a different problem and experiences different levels of shocks 
+
+\item To go the lifecycle model path, we can do choices of education as well.
+
+\end{enumerate}
 
 \newpage
 
