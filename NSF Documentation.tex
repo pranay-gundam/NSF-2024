@@ -128,9 +128,28 @@ This model builds on the class of Dynamic Spatial General Equilibrium literature
 
 Much of the other model setup is actually not as sophisticated as in Ahlfeldt, Redding, Sturm, Wolf other than the fact that general equilibrium is a dynamic path of the capital allocations and proces.
 
-\subsubsection{Colas, Hutchinson (2021): DSGE\cite{Colas2021}}
+\subsubsection{Colas, Hutchinson (2021): Government things\cite{Colas2021}}
 
-This paper focusses on the spatial effects of taxes (federal Income taxes) with 
+This paper focuses on the spatial effects of taxes (federal Income taxes) with 
+
+ 
+
+
+\subsubsection{Gregory, Kozlowski, Rubington (2022): Racial OLG\cite{Rubington2022}}
+
+The core idea seems like something that is interesting. Educational choices and how local spillovers impact this. The key part I think that is missing is the government intervation and nuanced wage dynamics, labor is perfectly mobile across locations and so in this model income is dependent on only race, education, and skill. \\
+
+\noindent I think this misses out on some key features of spatial models, sure there are some local spillovers that make its way into the dynamics but this model doesn't explain how FiDi came to become so different from Harlem (if the initial racial compositions were similar). To make progress on this end, I need to find a paper that has built out the firm to worker mapping a bit more and how to determine equilibrium wages. The most convincing argument I've seen so far is the location block equilibria where in each block, firms compete and set a different equilibrium wage rate.\\
+
+\noindent I'm still not sure about the mechanics here but one cool idea could be to model firm competition. Areas that are more amenable to work in attract workers, this in theory should act as a supply push down on equilibrium wages but more workers attract firms to locate there which is the demand force pushing wages up. Qualitatively, it looks like (just based on most companies located downtown) that the demand forces are stronger 
+
+
+\subsubsection{Redding, Hansberg (2017): The Spatial Model Menu\cite{ReddingHansberg2017}}
+
+Very nice summary of everything going on in the spatial general equilibrium literature. Stuff like the gravity equation and iceberg costs make a lot more sense now. I do notice a lack of a discussion of the government sector. This could just be because nobody is thinking of optimal policy right now in the literacture and more focused on the trade dynamics (people are all trade and international instead of coming from monetary policy), but also I think because optimal policy is it's own whole box of crazy. \\
+
+\noindent Specifically, we can look at the spatial implications of a government policy by breaking it apart and investigating a channel through which we think it may take affect. For example, constructing a better highway may increase migration or transportation costs between two locations in the short term but make them smaller in the long term. Optimal policy usually involves some level of interplay between household and firms guessing what the government will do and the government also having it's own doctrines. This is pretty technical to implement. I can still look at the former method of analyzing government policies and their implications on the agglomeration of income groups: where should infrastructure investment be focused from a welfare point of view and/or from a heterogenous welfare point of view?
+
 
 \subsection{Avenues of Innovation}
 
@@ -140,7 +159,9 @@ This paper focusses on the spatial effects of taxes (federal Income taxes) with
 \item Racial/cultural frictions (how is it that neighborhoods are often formed on basis of cultural homogeneity). This is important because we want to study the affect of how locations act as poverty sinks. There is one detail I'm missing here...
 
 \item Commuting shocks (like subway failures), and defining the model as a network, the more paths you have is also good because more protected from commuting shocks.
- 
+
+\item spatial implications of government policies
+
 \end{itemize}
 
 \subsection{Live Checklist of To-Do's}
@@ -230,7 +251,9 @@ We can solve this model in the same exact manner as above. It's a good exercise 
 
 \subsubsection{The Model}
 
-Education usually makes its way into these types of models by changing a household's productivity (that factors into their production capabilities) and this is a very natural way of introducing stochasticity as well. Without introducing firms yet, 
+Education usually makes its way into these types of models by changing a household's productivity (that factors into their production capabilities) and this is a very natural way of introducing stochasticity as well. Without introducing firms yet, we say that each household has some production capabilities that depends on their levels of capital, how much they choose to work (as opposed to spending time on leisure), and some local exogenously determined technology that depends on where the household chooses to work.\\
+
+\noindent One key detail to point out here is that we can still pose an interesting problem without introducing firms into equilibria. I happen to think firms are a critical part of the problem when it comes to the targets of government policy of there is still some nuance we can explore without them by abstracting the household production process.
 
 \subsubsection{Solution, Key Features, and Extensions}
 
