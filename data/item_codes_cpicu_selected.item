@@ -1,0 +1,15 @@
+item_code	item_name	display_level	selectable	sort_sequence
+SA0	All items	0	T	1
+SA0E	Energy	1	T	375
+SAA	Apparel	0	T	187
+SAC	Commodities	1	T	366
+SAD	Durables	1	T	372
+SAE	Education and communication	0	T	311
+SAF	Food and beverages	0	T	3
+SAG	Other goods and services	0	T	336
+SAH	Housing	0	T	136
+SAM	Medical care	0	T	250
+SAN	Nondurables	1	T	379
+SAR	Recreation	0	T	269
+SAS	Services	1	T	390
+SAT	Transportation	0	T	210
